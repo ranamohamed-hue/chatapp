@@ -1,5 +1,5 @@
-import 'package:chatapp2/feature/homescreen/widgets/screens/callscreen.dart';
-import 'package:chatapp2/feature/homescreen/widgets/widgetss/scaffoldscreenbottonappbar.dart';
+import 'package:chatapp2/feature/homescreen/ui/screens/callscreen.dart';
+import 'package:chatapp2/feature/homescreen/ui/widgetss/scaffoldscreenbottonappbar.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
