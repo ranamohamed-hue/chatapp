@@ -5,7 +5,7 @@ import 'package:chatapp2/feature/forloginscreen/ui/widgets/buildAppBar.dart';
 import 'package:chatapp2/feature/forloginscreen/ui/widgets/buildSignInScreen.dart';
 import 'package:chatapp2/feature/forloginscreen/ui/widgets/buildSignUpScreen.dart';
 import 'package:chatapp2/feature/forloginscreen/ui/widgets/buildTabs.dart';
-import 'package:chatapp2/feature/homescreen/screens/home.dart';
+import 'package:chatapp2/feature/homescreen/ui/screens/home.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';

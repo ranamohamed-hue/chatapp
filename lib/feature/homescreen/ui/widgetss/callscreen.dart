@@ -12,17 +12,20 @@ class _CallscreenState extends State<Callscreen> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(12),
+      padding: EdgeInsets.all(10),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           SizedBox(height: 20),
           _GridViewBuilder(),
           SizedBox(height: 20),
-          Listviewbuilder(
-            itemcountt: 5,
-            title: "Person Name",
-            subtitel: "Date",
-            time: "12.12",
+          Expanded(
+            child: Listviewbuilder(
+              itemcountt: 5,
+              title: "Person Name",
+              subtitel: "Date",
+              time: "12.12",
+            ),
           ),
         ],
       ),

@@ -1,101 +1,111 @@
+import 'package:chatapp2/feature/homescreen/logic/homecubit.dart';
+import 'package:chatapp2/feature/homescreen/logic/homestatus.dart';
+import 'package:chatapp2/feature/homescreen/ui/widgetss/callscreen.dart';
+import 'package:chatapp2/feature/homescreen/ui/widgetss/chatScreen.dart';
+import 'package:chatapp2/feature/homescreen/ui/widgetss/statuscreen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class Scaffoldscreenbottonappbar extends StatefulWidget {
-  final Widget body;
-  final String title;
-  final IconData icon1;
-  final IconData icon2;
-  const Scaffoldscreenbottonappbar({
-    super.key,
-    required this.title,
-    required this.icon1,
-    required this.icon2,
-    required this.body,
-  });
+class Scaffoldscreenbottonappbar extends StatelessWidget {
+  Scaffoldscreenbottonappbar({super.key});
 
-  @override
-  State<Scaffoldscreenbottonappbar> createState() =>
-      _ScaffoldscreenbottonappbarState();
-}
-
-class _ScaffoldscreenbottonappbarState
-    extends State<Scaffoldscreenbottonappbar> {
   int currentIndex = 0;
 
-  void _onItemTap(int index) {
-    setState(() {
-      currentIndex = index;
-    });
-  }
+  List<Widget> screens = [Chatscreen(), Callscreen(), Statuscreen()];
 
   @override
   Widget build(BuildContext context) {
     final double bottomSafePadding = MediaQuery.of(context).padding.bottom;
     const double navBarHeight = 55.0;
-
     final double totalBottomHeight = navBarHeight + bottomSafePadding;
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.purple,
-        elevation: 0,
-        toolbarHeight: 50,
-        automaticallyImplyLeading: false,
-        title: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(widget.icon1, size: 30, color: Colors.white),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(widget.icon2, size: 30, color: Colors.white),
-            ),
-            Spacer(),
-            Text(
-              widget.title,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
-        ),
-      ),
-      body: widget.body,
-      floatingActionButton: FloatingActionButton(onPressed: () {},child: Icon(Icons.add,size: 36,color: const Color.fromARGB(255, 197, 141, 207),)),
-      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
-      bottomNavigationBar: Container(
-        color: const Color.fromARGB(255, 234, 230, 235),
-        height: totalBottomHeight,
+    return BlocConsumer<Homecubit, Homestatue>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        var cubit = Homecubit.get(context);
 
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            bottomNavitionBar(
-              icon: Icons.message_outlined,
-              index: 0,
-              title: "Chats",
+        return Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.purple,
+            elevation: 0,
+            toolbarHeight: 50,
+            automaticallyImplyLeading: false,
+            title: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(cubit.currentIcon1, size: 30, color: Colors.white),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(cubit.currentIcon2, size: 30, color: Colors.white),
+                ),
+                Spacer(),
+                Text(
+                  cubit.currentTitle,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
             ),
-            bottomNavitionBar(icon: Icons.update, index: 1, title: "Status"),
-            bottomNavitionBar(icon: Icons.groups, index: 2, title: "Groups"),
-            bottomNavitionBar(icon: Icons.call, index: 3, title: "Calls"),
-          ],
-        ),
-      ),
+          ),
+          body: screens[cubit.currentIndex],
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {},
+            child: Icon(
+              Icons.add,
+              size: 36,
+              color: const Color.fromARGB(255, 197, 141, 207),
+            ),
+          ),
+          floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+          bottomNavigationBar: Container(
+            color: const Color.fromARGB(255, 234, 230, 235),
+            height: totalBottomHeight,
+
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                bottomNavitionBar(
+                  context: context,
+                  icon: Icons.message_outlined,
+                  index: 0,
+                  title: "Chats",
+                ),
+                bottomNavitionBar(
+                  context: context,
+                  icon: Icons.update,
+                  index: 1,
+                  title: "Status",
+                ),
+                bottomNavitionBar(
+                  context: context,
+                  icon: Icons.call,
+                  index: 2,
+                  title: "Calls",
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 
   Widget bottomNavitionBar({
+    required BuildContext context,
     required IconData icon,
     required int index,
     required String title,
   }) {
-    bool isSelected = currentIndex == index;
+    var cubit = Homecubit.get(context);
+    bool isSelected = cubit.currentIndex == index;
     return InkWell(
-      onTap: () => _onItemTap(index),
+      onTap: () => cubit.gotochatscreen(index),
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
         decoration:
