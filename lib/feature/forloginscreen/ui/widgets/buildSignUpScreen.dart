@@ -5,14 +5,14 @@ import 'package:chatapp2/feature/forloginscreen/ui/widgets/buildTextFormField.da
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class Buildsignupscreen extends StatefulWidget {
-  const Buildsignupscreen({super.key});
+class BuildSignUpScreen extends StatefulWidget {
+  const BuildSignUpScreen({super.key});
 
   @override
-  State<Buildsignupscreen> createState() => _BuildsignupscreenState();
+  State<BuildSignUpScreen> createState() => _BuildSignUpScreenState();
 }
 
-class _BuildsignupscreenState extends State<Buildsignupscreen> {
+class _BuildSignUpScreenState extends State<BuildSignUpScreen> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _usernamee = TextEditingController();
   final TextEditingController _userphone = TextEditingController();

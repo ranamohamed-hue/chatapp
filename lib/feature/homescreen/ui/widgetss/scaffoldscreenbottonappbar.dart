@@ -1,5 +1,5 @@
-import 'package:chatapp2/feature/homescreen/logic/homecubit.dart';
-import 'package:chatapp2/feature/homescreen/logic/homestatus.dart';
+import 'package:chatapp2/feature/homescreen/logic/forhome/homecubit.dart';
+import 'package:chatapp2/feature/homescreen/logic/forhome/homestatus.dart';
 import 'package:chatapp2/feature/homescreen/ui/widgetss/callscreen.dart';
 import 'package:chatapp2/feature/homescreen/ui/widgetss/chatScreen.dart';
 import 'package:chatapp2/feature/homescreen/ui/widgetss/statuscreen.dart';

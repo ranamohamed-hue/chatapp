@@ -1,4 +1,4 @@
-import 'package:chatapp2/feature/homescreen/logic/homestatus.dart';
+import 'package:chatapp2/feature/homescreen/logic/forhome/homestatus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -2,14 +2,14 @@ import 'package:chatapp2/feature/forloginscreen/ui/screens/login.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
-class Splash_login extends StatefulWidget {
-  const Splash_login({super.key});
+class SplashPage extends StatefulWidget {
+  const SplashPage({super.key});
 
   @override
-  State<Splash_login> createState() => Splash_loginState();
+  State<SplashPage> createState() => SplashPageState();
 }
 
-class Splash_loginState extends State<Splash_login> {
+class SplashPageState extends State<SplashPage> {
   late VideoPlayerController _logo;
 
   @override
@@ -25,7 +25,7 @@ class Splash_loginState extends State<Splash_login> {
       Navigator.pushReplacement(
         context,
         PageRouteBuilder(
-          pageBuilder: (context, animation, secondaryAnimation) => Login(),
+          pageBuilder: (context, animation, secondaryAnimation) => LoginScreen(),
           transitionDuration: Duration(seconds: 3),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return FadeTransition(opacity: animation, child: child);

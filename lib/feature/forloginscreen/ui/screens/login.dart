@@ -1,6 +1,6 @@
 import 'package:chatapp2/feature/forloginscreen/logic/cubit/logincubit.dart';
 import 'package:chatapp2/feature/forloginscreen/logic/cubit/loginstate.dart';
-import 'package:chatapp2/feature/forloginscreen/ui/screens/BuildVerificationScreen.dart';
+import 'package:chatapp2/feature/forloginscreen/ui/screens/buildVerificationScreen.dart';
 import 'package:chatapp2/feature/forloginscreen/ui/widgets/buildAppBar.dart';
 import 'package:chatapp2/feature/forloginscreen/ui/widgets/buildSignInScreen.dart';
 import 'package:chatapp2/feature/forloginscreen/ui/widgets/buildSignUpScreen.dart';
@@ -10,8 +10,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class Login extends StatelessWidget {
         if (state is GoToHomeScreen) {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Home()),
+            MaterialPageRoute(builder: (context) => HomeScreen()),
           );
         }
       },
@@ -79,7 +79,7 @@ class Login extends StatelessWidget {
                   const SizedBox(height: 25),
                   isLoginActive
                       ? const Buildsigninscreen()
-                      : const Buildsignupscreen(),
+                      : const BuildSignUpScreen(),
                 ],
               ),
             ),
