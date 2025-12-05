@@ -12,7 +12,6 @@ class MenuBottonCubit extends Cubit<MenuBottonState> {
     if (index == 0) {
       items = [
         PopupMenuItem(value: "new_group", child: Text("New Group")),
-        PopupMenuItem(value: "new_community", child: Text("New New Community")),
         PopupMenuItem(
           value: "new_group_message",
           child: Text("New Group Message"),

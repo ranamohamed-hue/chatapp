@@ -3,7 +3,7 @@ import 'package:chatapp2/feature/homescreen/ui/widgetss/listViewBuilder.dart';
 import 'package:flutter/material.dart';
 
 class Chatscreen extends StatefulWidget {
-  Chatscreen({super.key});
+ const Chatscreen({super.key});
 
   @override
   State<Chatscreen> createState() => _ChatscreenState();
@@ -41,6 +41,7 @@ class _ChatscreenState extends State<Chatscreen> {
                 if (value == null || value.isEmpty) {
                   return "Please enter some thing";
                 }
+                return null;
               },
             ),
             SizedBox(height: 20),
