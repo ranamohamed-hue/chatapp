@@ -2,6 +2,7 @@ import 'package:chatapp2/feature/forloginscreen/logic/cubit/logincubit.dart';
 import 'package:chatapp2/feature/forloginscreen/ui/screens/splash.dart';
 import 'package:chatapp2/feature/homescreen/logic/forhome/homecubit.dart';
 import 'package:chatapp2/feature/homescreen/logic/forpopupmenubotton/menubottoncubit.dart';
+import 'package:chatapp2/feature/setting/ui/screens/settingScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,6 +25,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: SplashPage());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: Settingscreen());
   }
 }
