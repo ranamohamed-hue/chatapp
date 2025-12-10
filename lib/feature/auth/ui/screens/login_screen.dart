@@ -1,10 +1,10 @@
-import 'package:chatapp2/feature/forloginscreen/logic/cubit/logincubit.dart';
-import 'package:chatapp2/feature/forloginscreen/logic/cubit/loginstate.dart';
-import 'package:chatapp2/feature/forloginscreen/ui/screens/buildVerificationScreen.dart';
-import 'package:chatapp2/feature/forloginscreen/ui/widgets/buildAppBar.dart';
-import 'package:chatapp2/feature/forloginscreen/ui/widgets/buildSignInScreen.dart';
-import 'package:chatapp2/feature/forloginscreen/ui/widgets/buildSignUpScreen.dart';
-import 'package:chatapp2/feature/forloginscreen/ui/widgets/buildTabs.dart';
+import 'package:chatapp2/feature/auth/logic/login_cubit.dart';
+import 'package:chatapp2/feature/auth/logic/login_state.dart';
+import 'package:chatapp2/feature/auth/ui/screens/verification_screen.dart';
+import 'package:chatapp2/feature/auth/ui/widgets/appbar_widget.dart';
+import 'package:chatapp2/feature/auth/ui/widgets/row_tab.dart';
+import 'package:chatapp2/feature/auth/ui/widgets/signin_widget.dart';
+import 'package:chatapp2/feature/auth/ui/widgets/signup_widget.dart';
 import 'package:chatapp2/feature/homescreen/ui/screens/home.dart';
 import 'package:flutter/material.dart';
 
@@ -15,12 +15,12 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<Logincubit, Loginstate>(
+    return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state is GoToVerificationScreen) {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Buildverificationscreen()),
+            MaterialPageRoute(builder: (context) => VerificationScreen()),
           );
         }
         if (state is GoToHomeScreen) {
@@ -35,7 +35,7 @@ class LoginScreen extends StatelessWidget {
             state is LoginTabChange ? state.isLogin : true;
 
         return Scaffold(
-          appBar: BuildAppBar(),
+          appBar: AppBarWidget(),
           body: SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.all(15),
@@ -69,17 +69,17 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 20),
-                  Buildtabs(
+                  TabsWidget(
                     isLoginActive: isLoginActive,
-                    onsignintap:
-                        () => context.read<Logincubit>().setsigninnActive(),
-                    onsignupap:
-                        () => context.read<Logincubit>().setsignupActive(),
+                    onSignInTap:
+                        () => context.read<LoginCubit>().setsigninnActive(),
+                    onSignUpTap:
+                        () => context.read<LoginCubit>().setsignupActive(),
                   ),
                   const SizedBox(height: 25),
                   isLoginActive
-                      ? const Buildsigninscreen()
-                      : const BuildSignUpScreen(),
+                      ? const SignInScreenWidget()
+                      : const SignUpScreenWidget(),
                 ],
               ),
             ),

@@ -24,7 +24,7 @@ class BottomNavBarItem extends StatelessWidget {
         bool isSelected = cubit.currentIndex == index;
         return InkWell(
           onTap: () {
-            cubit.gotochatscreen(index);
+            cubit.changeTab(index);
             context.read<MenuBottonCubit>().popmenubottonchange(index);
           },
           child: Container(

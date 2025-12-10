@@ -1,18 +1,19 @@
-import 'package:chatapp2/feature/forloginscreen/logic/cubit/logincubit.dart';
-import 'package:chatapp2/feature/forloginscreen/ui/widgets/buildElevatedButton.dart';
-import 'package:chatapp2/feature/forloginscreen/ui/widgets/buildHelp.dart';
-import 'package:chatapp2/feature/forloginscreen/ui/widgets/buildTextFormField.dart';
+import 'package:chatapp2/feature/auth/logic/login_cubit.dart';
+import 'package:chatapp2/feature/auth/ui/widgets/elevated_button_widget.dart';
+import 'package:chatapp2/feature/auth/ui/widgets/help_widget.dart';
+import 'package:chatapp2/feature/auth/ui/widgets/text_form_field_widget.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class BuildSignUpScreen extends StatefulWidget {
-  const BuildSignUpScreen({super.key});
+class SignUpScreenWidget extends StatefulWidget {
+  const SignUpScreenWidget({super.key});
 
   @override
-  State<BuildSignUpScreen> createState() => _BuildSignUpScreenState();
+  State<SignUpScreenWidget> createState() => _SignUpScreenWidgetState();
 }
 
-class _BuildSignUpScreenState extends State<BuildSignUpScreen> {
+class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _usernamee = TextEditingController();
   final TextEditingController _userphone = TextEditingController();
@@ -36,7 +37,7 @@ class _BuildSignUpScreenState extends State<BuildSignUpScreen> {
         children: [
           SizedBox(height: 20),
           //user name
-          Buildtextformfield(
+          TextFormFieldWidget(
             title: "User Name",
             hinttext: "Enter Your Name",
             keyboardtype: TextInputType.name,
@@ -52,7 +53,7 @@ class _BuildSignUpScreenState extends State<BuildSignUpScreen> {
           ),
           SizedBox(height: 20),
           //user Email
-          Buildtextformfield(
+          TextFormFieldWidget(
             title: "User E_Mail",
             hinttext: "Enter Your E_Mail",
             keyboardtype: TextInputType.emailAddress,
@@ -68,7 +69,7 @@ class _BuildSignUpScreenState extends State<BuildSignUpScreen> {
           ),
           SizedBox(height: 20),
 
-          Buildtextformfield(
+          TextFormFieldWidget(
             title: "User Phone",
             hinttext: "Enter Your Phone",
             keyboardtype: TextInputType.phone,
@@ -88,7 +89,7 @@ class _BuildSignUpScreenState extends State<BuildSignUpScreen> {
             },
           ),
           SizedBox(height: 20),
-          Buildtextformfield(
+          TextFormFieldWidget(
             title: "User Password",
             hinttext: "**************",
             keyboardtype: TextInputType.visiblePassword,
@@ -108,10 +109,10 @@ class _BuildSignUpScreenState extends State<BuildSignUpScreen> {
             },
           ),
           SizedBox(height: 50),
-          Buildelevatedbutton(
+          ElevatedButtonWidget(
             onpress: () {
               if (_formKey.currentState!.validate()) {
-                context.read<Logincubit>().gotoVerificationScreen();
+                context.read<LoginCubit>().gotoVerificationScreen();
               }
             },
             title: "Next step",
@@ -119,7 +120,7 @@ class _BuildSignUpScreenState extends State<BuildSignUpScreen> {
           ),
           SizedBox(height: 50),
 
-          Buildhelp(comment: "Next Step", action: "Try Again"),
+          Help(comment: "Next Step", action: "Try Again"),
         ],
       ),
     );

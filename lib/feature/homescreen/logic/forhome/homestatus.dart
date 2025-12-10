@@ -8,8 +8,4 @@ final class ChangeScreen extends Homestatue {
   ChangeScreen({required this.index});
 }
 
-final class GoToStatuScreen extends Homestatue {}
 
-final class GoToCallScreen extends Homestatue {}
-
-final class GoToChatScreen extends Homestatue {}

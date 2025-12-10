@@ -1,18 +1,18 @@
-import 'package:chatapp2/feature/forloginscreen/logic/cubit/logincubit.dart';
-import 'package:chatapp2/feature/forloginscreen/ui/widgets/buildElevatedButton.dart';
-import 'package:chatapp2/feature/forloginscreen/ui/widgets/buildHelp.dart';
-import 'package:chatapp2/feature/forloginscreen/ui/widgets/buildTextFormField.dart';
+import 'package:chatapp2/feature/auth/logic/login_cubit.dart';
+import 'package:chatapp2/feature/auth/ui/widgets/elevated_button_widget.dart';
+import 'package:chatapp2/feature/auth/ui/widgets/help_widget.dart';
+import 'package:chatapp2/feature/auth/ui/widgets/text_form_field_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class Buildsigninscreen extends StatefulWidget {
-  const Buildsigninscreen({super.key});
+class SignInScreenWidget extends StatefulWidget {
+  const SignInScreenWidget({super.key});
 
   @override
-  State<Buildsigninscreen> createState() => _BuildsigninscreenState();
+  State<SignInScreenWidget> createState() => _SignInScreenWidgetState();
 }
 
-class _BuildsigninscreenState extends State<Buildsigninscreen> {
+class _SignInScreenWidgetState extends State<SignInScreenWidget> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _userphone = TextEditingController();
   @override
@@ -30,7 +30,7 @@ class _BuildsigninscreenState extends State<Buildsigninscreen> {
         children: [
           SizedBox(height: 20),
 
-          Buildtextformfield(
+          TextFormFieldWidget(
             title: "User Phone",
             hinttext: "Enter Your Phone",
             keyboardtype: TextInputType.phone,
@@ -48,16 +48,16 @@ class _BuildsigninscreenState extends State<Buildsigninscreen> {
           ),
 
           SizedBox(height: 50),
-          Buildelevatedbutton(
+          ElevatedButtonWidget(
             onpress: () {
               if (_formKey.currentState!.validate()) {
-                context.read<Logincubit>().gotoVerificationScreen();
+                context.read<LoginCubit>().gotoVerificationScreen();
               }
             },
             title: "Verification",
             icon: Icons.verified_outlined,
           ),
-          Buildhelp(comment: "Next Step", action: "Try Again"),
+          Help(comment: "Next Step", action: "Try Again"),
         ],
       ),
     );

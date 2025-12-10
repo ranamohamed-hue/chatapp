@@ -31,7 +31,7 @@ class Scaffoldscreenbottonappbar extends StatelessWidget {
             child: Icon(
               Icons.add,
               size: 36,
-              color: const Color.fromARGB(255, 197, 141, 207),
+              color:Theme.of(context).iconTheme.color
             ),
           ),
           floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,

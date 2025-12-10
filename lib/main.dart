@@ -1,8 +1,8 @@
-import 'package:chatapp2/feature/forloginscreen/logic/cubit/logincubit.dart';
-import 'package:chatapp2/feature/forloginscreen/ui/screens/splash.dart';
+import 'package:chatapp2/core/theming/app_theme.dart';
+import 'package:chatapp2/feature/auth/ui/screens/splash_screen.dart';
+import 'package:chatapp2/feature/auth/logic/login_cubit.dart';
 import 'package:chatapp2/feature/homescreen/logic/forhome/homecubit.dart';
 import 'package:chatapp2/feature/homescreen/logic/forpopupmenubotton/menubottoncubit.dart';
-import 'package:chatapp2/feature/setting/ui/screens/settingScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,7 +10,7 @@ void main() {
   runApp(
     MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => Logincubit()),
+        BlocProvider(create: (context) => LoginCubit()),
         BlocProvider(create: (context) => Homecubit()),
                 BlocProvider(create: (context) => MenuBottonCubit()),
 
@@ -25,6 +25,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: Settingscreen());
+    return MaterialApp(debugShowCheckedModeBanner: false,
+    theme: AppTheme.lightTheme,
+    darkTheme: AppTheme.darkTheme,
+    themeMode: ThemeMode.system,
+     home: SplashScreen());
   }
 }

@@ -9,9 +9,13 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appBarTheme = Theme.of(context).appBarTheme;
+    final iconolor =
+        appBarTheme.foregroundColor ?? Theme.of(context).iconTheme.color;
+    final titlestyle =
+        appBarTheme.titleTextStyle ?? Theme.of(context).textTheme.titleLarge;
     var cubit = Homecubit.get(context);
     return AppBar(
-      backgroundColor: Colors.purple,
       elevation: 0,
       toolbarHeight: 50,
       automaticallyImplyLeading: false,
@@ -24,19 +28,14 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
               if (state is MenuBottonChange) {
                 items = state.items;
               }
-              return PopupMenuButton(elevation: 0.7,
-              color: const Color.fromARGB(255, 217, 212, 218),
-              padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
-              constraints: const BoxConstraints(
-                maxHeight: 200,minWidth: 79
-              ),
-              position: PopupMenuPosition.under,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                icon: Icon(cubit.currentIcon1, color: Colors.white),
+              return PopupMenuButton(
+                elevation: 0.7,
+
+                constraints: const BoxConstraints(maxHeight: 200, minWidth: 79),
+                icon: Icon(cubit.currentIcon1),
                 itemBuilder: (context) => items,
                 onSelected: (value) {
                   print("Selected: $value");
-                  //######################################################################################
                 },
               );
             },
@@ -44,18 +43,11 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
 
           IconButton(
             onPressed: () {},
-            icon: Icon(cubit.currentIcon2, size: 30, color: Colors.white),
+            icon: Icon(cubit.currentIcon2, color: iconolor),
           ),
 
           const Spacer(),
-          Text(
-            cubit.currentTitle,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 25,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+          Text(cubit.currentTitle, style: titlestyle),
         ],
       ),
     );

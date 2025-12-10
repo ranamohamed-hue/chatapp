@@ -1,21 +1,22 @@
-import 'package:chatapp2/feature/forloginscreen/logic/cubit/logincubit.dart';
-import 'package:chatapp2/feature/forloginscreen/ui/widgets/buildAppBar.dart';
-import 'package:chatapp2/feature/forloginscreen/ui/widgets/buildElevatedButton.dart';
-import 'package:chatapp2/feature/forloginscreen/ui/widgets/buildHelp.dart';
-import 'package:chatapp2/feature/forloginscreen/ui/widgets/buildTextFormField.dart';
+
+import 'package:chatapp2/feature/auth/forloginscreen/logic/cubit/logincubit.dart';
+import 'package:chatapp2/feature/auth/forloginscreen/ui/widgets/buildAppBar.dart';
+import 'package:chatapp2/feature/auth/ui/widgets/elevated_button_widget.dart';
+import 'package:chatapp2/feature/auth/ui/widgets/help_widget.dart';
+import 'package:chatapp2/feature/auth/ui/widgets/text_form_field_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class Buildverificationscreen extends StatefulWidget {
-  const Buildverificationscreen({super.key});
+class VerificationScreen extends StatefulWidget {
+  const VerificationScreen({super.key});
 
   @override
-  State<Buildverificationscreen> createState() =>
-      _BuildverificationscreenState();
+  State<VerificationScreen> createState() =>
+      _verificationscreenState();
 }
 
-class _BuildverificationscreenState extends State<Buildverificationscreen> {
+class _verificationscreenState extends State<VerificationScreen> {
   final _formKey = GlobalKey<FormState>();
 
   final TextEditingController _verificationcode = TextEditingController();
@@ -46,7 +47,7 @@ class _BuildverificationscreenState extends State<Buildverificationscreen> {
                   ),
                 ),
                 SizedBox(height: 20),
-                Buildtextformfield(
+                TextFormFieldWidget(
                   title: "Verification Number",
                   hinttext: "000 000",
                   keyboardtype: TextInputType.number,
@@ -63,7 +64,7 @@ class _BuildverificationscreenState extends State<Buildverificationscreen> {
                   },
                 ),
                 SizedBox(height: 50),
-                Buildelevatedbutton(
+                ElevatedButtonWidget(
                   onpress: () {
                     if (_formKey.currentState!.validate()) {
                       context.read<Logincubit>().gotoHomeScreen();
@@ -74,7 +75,7 @@ class _BuildverificationscreenState extends State<Buildverificationscreen> {
                 ),
                 SizedBox(height: 80),
 
-                Buildhelp(
+                Help(
                   comment: "Did Not Receive Code?",
                   action: 'Try Again',
                 ),

@@ -1,8 +1,8 @@
-import 'package:chatapp2/feature/forloginscreen/logic/cubit/loginstate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:chatapp2/feature/auth/logic/login_state.dart';
 
-class Logincubit extends Cubit<Loginstate> {
-  Logincubit() : super(LoginTabChange(isLogin: true));
+class LoginCubit extends Cubit<LoginState> {
+  LoginCubit() : super(LoginInitial());
   //لو المستخدم مسجل قبل كدا
   void setsigninnActive() {
     emit(LoginTabChange(isLogin: true));

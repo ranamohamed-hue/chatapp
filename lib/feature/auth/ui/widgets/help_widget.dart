@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class Buildhelp extends StatelessWidget {
+class Help extends StatelessWidget {
   final String comment;
   final String action;
-  const Buildhelp({super.key, required this.comment, required this.action});
+  const Help({super.key, required this.comment, required this.action});
 
   @override
   Widget build(BuildContext context) {
@@ -11,16 +11,12 @@ class Buildhelp extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(comment, style: TextStyle(color: Colors.black54, fontSize: 15)),
+          Text(comment, style: Theme.of(context).textTheme.bodyMedium),
           TextButton(
             onPressed: () {},
             child: Text(
               action,
-              style: TextStyle(
-                color: Colors.purpleAccent,
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-              ),
+              style: Theme.of(context).textTheme.bodyMedium
             ),
           ),
         ],

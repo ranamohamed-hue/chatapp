@@ -27,20 +27,20 @@ class _ListviewbuilderState extends State<Listviewbuilder> {
         return ListTile(
           leading: CircleAvatar(
             radius: 28,
-            backgroundColor: const Color.fromARGB(255, 197, 141, 207),
-            child: Icon(Icons.person, size: 30, color: Colors.white),
+            backgroundColor: const Color.fromARGB(255, 131, 158, 131),
+            child: Icon(Icons.person, color: Theme.of(context).iconTheme.color),
           ),
           title: Text(
             widget.title,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
           subtitle: Text(
             widget.subtitel,
-            style: TextStyle(fontSize: 12, color: Colors.grey),
+            style: Theme.of(context).textTheme.bodySmall,
           ),
           trailing: Text(
             widget.time,
-            style: TextStyle(fontSize: 12, color: Colors.grey),
+            style: Theme.of(context).textTheme.bodySmall,
           ),
         );
       },
