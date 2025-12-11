@@ -12,8 +12,7 @@ void main() {
       providers: [
         BlocProvider(create: (context) => LoginCubit()),
         BlocProvider(create: (context) => Homecubit()),
-                BlocProvider(create: (context) => MenuBottonCubit()),
-
+        BlocProvider(create: (context) => MenuBottonCubit()),
       ],
       child: MyApp(),
     ),
@@ -25,10 +24,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false,
-    theme: AppTheme.lightTheme,
-    darkTheme: AppTheme.darkTheme,
-    themeMode: ThemeMode.system,
-     home: SplashScreen());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.system,
+      home: SplashScreen(),
+    );
   }
 }

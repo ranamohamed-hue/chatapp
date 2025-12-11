@@ -36,6 +36,14 @@ dependencies:
   dio: ^5.9.0
   shimmer: ^3.0.0
   video_player: ^2.10.1
+  hive: ^2.2.3   
+  hive_flutter: ^1.1.0
+  uuid: ^4.5.1
+  cloud_firestore: ^6.1.0
+  firebase_core: ^4.2.1
+  firebase_auth: ^6.1.2
+  dartz: ^0.10.1  
+  cupertino_icons: ^1.0.8
   flutter_native_splash: ^2.4.6
 flutter_native_splash:
   color: "#ffffff"
@@ -45,9 +53,9 @@ flutter_native_splash:
   hive_flutter: ^1.1.0
   uuid: ^4.5.1
   cloud_firestore: ^6.1.0
-  firebase_core: ^4.1.1
-  firebase_auth: ^6.1.0
-  dartz: ^0.10.1  .
+  firebase_core: ^4.2.1
+  firebase_auth: ^6.1.2
+  dartz: ^0.10.1  
   cupertino_icons: ^1.0.8
 
 dev_dependencies:
