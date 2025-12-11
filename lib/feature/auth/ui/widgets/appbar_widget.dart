@@ -1,4 +1,4 @@
-import 'package:chatapp2/feature/forloginscreen/ui/widgets/buildDoubleWave.dart';
+import 'package:chatapp2/feature/auth/ui/widgets/double_wave_widget.dart';
 import 'package:flutter/material.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {

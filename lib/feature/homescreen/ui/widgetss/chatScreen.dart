@@ -1,4 +1,4 @@
-import 'package:chatapp2/feature/forloginscreen/ui/widgets/buildTextFormField.dart';
+import 'package:chatapp2/feature/auth/ui/widgets/text_form_field_widget.dart';
 import 'package:chatapp2/feature/homescreen/ui/widgetss/listViewBuilder.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +31,7 @@ class _ChatscreenState extends State<Chatscreen> {
           children: [
             SizedBox(height: 10),
 
-            Buildtextformfield(
+            TextFormFieldWidget(
               title: "Search",
               hinttext: "AskHere",
               keyboardtype: TextInputType.text,

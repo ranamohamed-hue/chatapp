@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 // الألوان
-const Color _kDarkPurple = Color.fromARGB(255, 192, 156, 190); // غامق
-const Color _kLightPurple = Color.fromARGB(255, 155, 89, 182); // فاتح
+const Color _kDarkPurple = Color.fromARGB(255, 147, 170, 146); // غامق
+const Color _kLightPurple = Color.fromARGB(255, 92, 146, 108); // فاتح
 
 class DoubleWavePainter extends CustomPainter {
   @override
