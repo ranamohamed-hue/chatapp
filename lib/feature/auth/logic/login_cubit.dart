@@ -16,6 +16,7 @@ class LoginCubit extends Cubit<LoginState> {
   //للذهاب الي صفحة التحقق
   void gotoVerificationScreen() {
     emit(GoToVerificationScreen());
+    
   }
 
   //للذهاب الي الصفحة الرئيسية
