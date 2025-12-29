@@ -1,8 +1,9 @@
-import 'package:chatapp2/feature/auth/logic/login_cubit.dart';
+import 'package:chatapp2/feature/auth/data/models/user_model.dart';
+import 'package:chatapp2/feature/auth/logic/fire_base/Auth_cubit.dart';
+import 'package:chatapp2/feature/auth/logic/fire_base/Auth_state.dart';
 import 'package:chatapp2/feature/auth/ui/widgets/elevated_button_widget.dart';
 import 'package:chatapp2/feature/auth/ui/widgets/help_widget.dart';
 import 'package:chatapp2/feature/auth/ui/widgets/text_form_field_widget.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -109,14 +110,37 @@ class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
             },
           ),
           SizedBox(height: 50),
-          ElevatedButtonWidget(
-            onpress: () {
-              if (_formKey.currentState!.validate()) {
-                context.read<LoginCubit>().gotoVerificationScreen();
-              }
-            },
-            title: "Next step",
-            icon: Icons.navigate_next,
+      BlocBuilder<AuthCubit, AuthState>(
+            builder: (context, state) {
+             return ElevatedButtonWidget(
+                onpress: state is SignUpLoadingState
+                    ? null
+                    : () {
+                        if (_formKey.currentState!.validate()) {
+                          final newUser = UserModel(
+                            name: _usernamee.text,
+                            email: _useremail.text,
+                            phoneNumber: _userphone.text,
+                          );
+                          context.read<AuthCubit>().signUp(
+                                userModel: newUser,
+                                password: _userpassword.text,
+                              );
+                        }
+                      },
+              
+        /*     title: state is SignUpLoadingState ? "Creating Account..." : "Sign Up",
+           icon: state is SignUpLoadingState
+          ؟ const SizedBox(
+              width: 20,
+              height: 20,
+              child: CircularProgressIndicator(
+                color: Colors.white,
+                strokeWidth: 2,
+              ),
+            ) 
+            : const Icon(Icons.app_registration),*/
+            );},
           ),
           SizedBox(height: 50),
 
