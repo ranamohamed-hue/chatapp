@@ -58,7 +58,14 @@ class AuthRepoImpl extends AuthRepo {
       if (creidential.user == null) {
         return left("user creation failed");
       }
-      return right(userModel);
+      final user = UserModel(
+        id: creidential.user!.uid,
+        name: userModel.phoneNumber,
+        email: userModel.email,
+        phoneNumber: userModel.phoneNumber,
+      );
+firebaseFirestore.collection('users').doc(user.id).set(user.toJson());
+      return right(user);
     } catch (e) {
       return left(e.toString());
     }
